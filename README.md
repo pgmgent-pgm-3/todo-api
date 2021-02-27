@@ -103,7 +103,7 @@ Werk verder op het `TodoFile.js` die je maakte in stap 1:
 ## Stap 5: Implementeer middleware
 
 - Met Express JS kan je [middleware](https://expressjs.com/en/guide/using-middleware.html) gebruiken en zelf maken.
-- Maak in je `src`-folder een mapje `middleware` aan.
+- Maak in je `src`-folder een mapje `middleware` aan.
 - Maak `auth` middleware waarmee je authenticatie simuleert. Gebruik hiervoor een eenvoudige boolean.
 - Maak een `todofilter` middleware die de binnenkomende data zal scannen op taalgebruik.
 - UITBREIDING: maak een afzonderlijk bestand in `data/filterdata.js` met daarin een lijst van woorden die een user niet mag gebruiken bij het sturen van zijn todo item.
