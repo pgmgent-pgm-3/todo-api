@@ -1,1 +1,1 @@
-# A Restful ToDo API
+# A RESTful Todo-API

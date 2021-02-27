@@ -1,12 +1,16 @@
 {
   "name": "todo-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "A RESTful Todo-API",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon src/index.js --ignore 'data/*.*'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }
