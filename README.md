@@ -7,7 +7,7 @@ In deze demo maak je een API waarmee je een todo lijstje kan maken. Je gebruikt 
 ## Overzicht
 
 We doorlopen verschillende stappen:
-- [Stap 1: Opzetten van je programmeeromgeving][]
+- [Stap 1: Opzetten van je programmeeromgeving](#stap-1-opzetten-van-je-programmeeromgeving)
 
 ## Stap 1: Opzetten van je programmeeromgeving
 
@@ -22,16 +22,16 @@ We doorlopen volgende stappen:
   - [Installeer Chalk](https://www.npmjs.com/package/chalk)
   - Lees de documentatie van Chalk, je kan met deze bibliotheek kleurtjes geven aan je fouten in de console.
   - Maak in een `/src/lib/` folder de file `Logger.js`. Dit is een ES6 module met daarin 6 verschillende functies:
-      - info: geeft blauwe tekst in de console
-      - stressedInfo: geeft tekst met een blauwe achtergrond in de console
-      - error: geeft rode tekst in de console
-      - stressedError: geeft tekst met een rode achtergrond in de coonsole
-      - warning: geeft oranje tekst in de console (lees de documentatie zodat je weet hoe je dit moet doen)
-      - stressedWarning: geeft tekst met een blauwe achtergrond in de coonsole (lees de documentatie zodat je weet hoe je dit moet doen)
-      - json: zorgt dat een JSON object wordt uitgeschreven in de console als tekst. De tekst zelf staat in een grijze kleur.
+      - `info()`: geeft blauwe tekst in de console
+      - `stressedInfo()`: geeft tekst met een blauwe achtergrond in de console
+      - `error()`: geeft rode tekst in de console
+      - `stressedError()`: geeft tekst met een rode achtergrond in de coonsole
+      - `warning()`: geeft oranje tekst in de console (lees de documentatie zodat je weet hoe je dit moet doen)
+      - `stressedWarning()`: geeft tekst met een blauwe achtergrond in de coonsole (lees de documentatie zodat je weet hoe je dit moet doen)
+      - `json()`: zorgt dat een JSON object wordt uitgeschreven in de console als tekst. De tekst zelf staat in een grijze kleur.
 - We starten in deze stap met het opslaan van je `todo.json` bestand in een `data` folder vanaf je root.
   - Maak in je `/src/lib` folder een file `TodoFile.js`. Je maakt hier in een klasse met verschillende functies (zie volgende stappen). Voor nu volstaat:
-    - save(): dit is een functie waarmee we een JSON bestand wegschrijven in je `data`folder. Schrijf in je Express applicatie een functie (enkel voor demo) om een lege array weg te schrijven met daarin een object:
+    - `save()`: dit is een functie waarmee we een JSON bestand wegschrijven in je `data`folder. Schrijf in je Express applicatie een functie (enkel voor demo) om een lege array weg te schrijven met daarin een object:
     ```json
     [{
       success: "success!"
