@@ -3,8 +3,8 @@
  */
 
 import fs from 'fs';
-import Logger from './Logger.js';
 import { v4 as uuidv4 } from 'uuid';
+import Logger from './Logger.js';
 
 export default class TodoFile {
   constructor(filename) {
@@ -24,7 +24,7 @@ export default class TodoFile {
       // create a new todo
       const todo = {
         id: uuidv4(),
-        description
+        description,
       };
 
       // push a new todo in our existing array
@@ -35,8 +35,8 @@ export default class TodoFile {
 
       // return the todo (as a good practice)
       return todo;
-    } catch(e) {
-      Logger.error(e.message);
+    } catch (e) {
+      return Logger.error(e.message);
     }
   }
 
@@ -49,24 +49,24 @@ export default class TodoFile {
   update(id, description) {
     try {
     // get all the todos
-    const todos = this.get();
+      const todos = this.get();
 
-    // find the todo we'd like to update
-    const todo = todos.find(t => t.id === id);
+      // find the todo we'd like to update
+      const todo = todos.find((t) => t.id === id);
 
-    // error handling
-    if(todo == null) throw new Error(`ToDo with ID ${id} does not exist`);
+      // error handling
+      if (todo == null) throw new Error(`ToDo with ID ${id} does not exist`);
 
-    // change the description
-    todo.description = description;
+      // change the description
+      todo.description = description;
 
-    // save the data
-    this.save(todos);
+      // save the data
+      this.save(todos);
 
-    // return the updated todo
-    return todo;
-    } catch(e) {
-      Logger.error(e.message);
+      // return the updated todo
+      return todo;
+    } catch (e) {
+      return Logger.error(e.message);
     }
   }
 
@@ -81,12 +81,12 @@ export default class TodoFile {
       const todos = this.get();
 
       // filter out the todo we want to delete
-      const filteredTodos = todos.filter(t => t.id !== id);
+      const filteredTodos = todos.filter((t) => t.id !== id);
 
       // save the file
-      this.save(filteredTodos);
-    } catch(e) {
-      Logger.error(e.message);
+      return this.save(filteredTodos);
+    } catch (e) {
+      return Logger.error(e.message);
     }
   }
 
@@ -97,8 +97,8 @@ export default class TodoFile {
     try {
       const data = fs.readFileSync(this.filename, 'utf-8');
       return JSON.parse(data);
-    } catch(e) {
-      Logger.error(e.message);
+    } catch (e) {
+      return Logger.error(e.message);
     }
   }
 
@@ -110,7 +110,7 @@ export default class TodoFile {
   save(todos) {
     try {
       fs.writeFileSync(this.filename, JSON.stringify(todos, null, 2));
-    } catch(e) {
+    } catch (e) {
       Logger.error(e.message);
     }
   }

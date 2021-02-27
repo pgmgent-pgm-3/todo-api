@@ -29,4 +29,4 @@ export default (request) => {
 
   // return the parsed todo
   return todo;
-}
+};

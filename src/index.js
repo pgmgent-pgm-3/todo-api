@@ -29,4 +29,4 @@ registerTodoEndpoints(app);
 
 app.listen(process.env.PORT, () => {
   Logger.warning(`Server started on port ${process.env.PORT}`);
-})
+});

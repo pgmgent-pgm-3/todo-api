@@ -7,5 +7,5 @@ import todofilter from './todofilter.js';
 
 export default [
   auth,
-  todofilter
-]
+  todofilter,
+];

@@ -14,8 +14,8 @@ export default class TodoDb {
   async add(description) {
     try {
       return await knexTodos('todos').insert({ description });
-    } catch(e) {
-      Logger.error(e.message);
+    } catch (e) {
+      return Logger.error(e.message);
     }
   }
 
@@ -25,10 +25,11 @@ export default class TodoDb {
    * @param {string} id
    * @param {string} description
    */
+  // eslint-disable-next-line
   async update(id, description) {
     try {
-      return await knexTodos('todos').where("id", id).update({ description });
-    } catch(e) {
+      return await knexTodos('todos').where('id', id).update({ description });
+    } catch (e) {
       Logger.error(e.message);
     }
   }
@@ -40,9 +41,9 @@ export default class TodoDb {
    */
   async delete(id) {
     try {
-      return await knexTodos('todos').where("id", id).del();
-    } catch(e) {
-      Logger.error(e.message);
+      return await knexTodos('todos').where('id', id).del();
+    } catch (e) {
+      return Logger.error(e.message);
     }
   }
 
@@ -51,9 +52,9 @@ export default class TodoDb {
    */
   async get() {
     try {
-      return await knexTodos('todos').select("*");
-    } catch(e) {
-      Logger.error(e.message);
+      return await knexTodos('todos').select('*');
+    } catch (e) {
+      return Logger.error(e.message);
     }
   }
 }

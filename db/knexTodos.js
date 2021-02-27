@@ -5,11 +5,11 @@
 import knex from 'knex';
 
 const knexTodos = knex({
-  client: "sqlite3",
+  client: 'sqlite3',
   connection: {
-    filename: "./db/todos.sqlite3"
+    filename: './db/todos.sqlite3',
   },
-  useNullAsDefault: true
+  useNullAsDefault: true,
 });
 
 export default knexTodos;
