@@ -7,6 +7,7 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import Logger from './lib/Logger.js';
 import registerTodoEndpoints from './actions/todo/registerTodoEndpoints.js';
+import middleware from './middleware/index.js';
 
 // create a new express application
 const app = Express();
@@ -16,6 +17,8 @@ dotenv.config();
 
 // add json body parser
 app.use(bodyParser.json());
+
+app.use(...middleware);
 
 // register the endpoints
 registerTodoEndpoints(app);
