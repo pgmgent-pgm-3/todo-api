@@ -10,6 +10,7 @@ We doorlopen verschillende stappen:
 - [Stap 1: Opzetten van je programmeeromgeving](#stap-1-opzetten-van-je-programmeeromgeving)
 - [Stap 2: TodoFile verder uitwerken](#stap-2-todofile-verder-uitwerken)
 - [Stap 3: Maak je API endpoints](#stap-3-maak-je-api-endpoints)
+- [Stap 4: Vervang wegeschrijven naar je filesystem met SQLite](#stap4-vervang-wegschrijven-naar-je-filesystem-met-sqlite)
 
 ## Stap 1: Opzetten van je programmeeromgeving
 
@@ -75,4 +76,26 @@ Werk verder op het `TodoFile.js` die je maakte in stap 1:
     - GET "/todos"
     - PUT "/todos"
     - DELETE "/todos"
-- Spreek de `registerTodoEndpoints([Instantie Express App])` aan in het start bestand van je Express applicatie.
+- Spreek de `registerTodoEndpoints([Instantie Express App])` aan in je `index.js`-bestand van je applicatie.
+
+## Stap 4: Vervang wegeschrijven naar je filesystem met SQLite
+- [Installeer SQLite](https://www.npmjs.com/package/sqlite3)
+- [Installer Knex](https://www.npmjs.com/package/knex)
+- Maak een nieuwe folder `db` aan in de root van je applicatie
+- Maak een nieuwe SQLite database aan je nieuwe folder, je geeft een leeg bestand de naam `todos.sqlite3`
+- Download en installeer de [SQLite Browser](https://sqlitebrowser.org/)
+- Met de SQLite Browser kan je je `todos.sqlite3` openen en een database schema maken:
+  - Maak een tabel `todos`
+  - Definieer twee velden in je tabel:
+    - `id`: deze is van het type INTEGER, kent geen Non Nullable fields, is de Primary Key en incrementeert automatisch
+    - `description`: deze is van het type TEXT
+- Schrijf je aanpassingen weg naar je bestand door te klikken op `Write Changes`
+- Maak een nieuw bestand aan in je `db`-folder: `knexTodos.js`.
+- [Knex](https://knexjs.org/) is een manier om makkelijk(er) te communiceren met databases zoals MSSQL, MySQL, ... en ook SQLite3. De library laat je toe om op een makkelijke en begrijpbare manier data toe te voegen, te wijzigen, te verwijderen, op te halen, etc.
+- Maak in je nieuwe `knexTodos.js` een functie die een `knex`-object teruggeeft, geconnecteerd aan jouw SQLite3 database.
+- Maak in je `lib`-folder een nieuw bestand `TodoDb.js` en maak verschillende functies aan die gelijkaardig zijn aan je `TodoFile.js`, met dit verschil dat je nu je data zal wegschrijven naar een SQLite3 database. Lees de documentatie van Knex erop na zodat je weet hoe je dit kan aanpakken.
+- Pas je endpoints aan zodat deze nu gebruik maken van `TodoDb.js` in plaats van `TodoFile.js`.
+- Je API zou op dezelfde manier moeten werken (zelfde HTTP methods) alleen wordt data nu ergens anders naartoe geschreven.
+
+## Stap 5: Implementeer middleware
+
