@@ -2,7 +2,7 @@
 
 ## Introductie
 
-In deze demo maak je een API waarmee je een todo lijstje kan maken. Je gebruikt hiervoor Express, FileSystem, SQLlite, Middleware en we eindigen met het opzetten van ESLint.
+In deze demo maak je een API waarmee je een todo lijstje kan maken. Je gebruikt hiervoor Express, FileSystem, SQLlite3, Middleware en we eindigen met het opzetten van ESLint.
 
 ## Overzicht
 
@@ -11,6 +11,8 @@ We doorlopen verschillende stappen:
 - [Stap 2: TodoFile verder uitwerken](#stap-2-todofile-verder-uitwerken)
 - [Stap 3: Maak je API endpoints](#stap-3-maak-je-api-endpoints)
 - [Stap 4: Vervang wegeschrijven naar je filesystem met SQLite](#stap4-vervang-wegschrijven-naar-je-filesystem-met-sqlite)
+- [Stap 5: Implementeer middleware](#stap-5-implementeer-middleware)
+- [Final: Voeg ESLint toe](#final-voeg-eslint-toe)
 
 ## Stap 1: Opzetten van je programmeeromgeving
 
@@ -77,6 +79,7 @@ Werk verder op het `TodoFile.js` die je maakte in stap 1:
     - PUT "/todos"
     - DELETE "/todos"
 - Spreek de `registerTodoEndpoints([Instantie Express App])` aan in je `index.js`-bestand van je applicatie.
+- Gebruik [Postman](https://www.postman.com/) om je API te testen.
 
 ## Stap 4: Vervang wegeschrijven naar je filesystem met SQLite
 - [Installeer SQLite](https://www.npmjs.com/package/sqlite3)
@@ -99,3 +102,11 @@ Werk verder op het `TodoFile.js` die je maakte in stap 1:
 
 ## Stap 5: Implementeer middleware
 
+- Met Express JS kan je [middleware](https://expressjs.com/en/guide/using-middleware.html) gebruiken en zelf maken.
+- Maak in je `src`-folder een mapje `middleware` aan.
+- Maak `auth` middleware waarmee je authenticatie simuleert. Gebruik hiervoor een eenvoudige boolean.
+- Maak een `todofilter` middleware die de binnenkomende data zal scannen op taalgebruik.
+- UITBREIDING: maak een afzonderlijk bestand in `data/filterdata.js` met daarin een lijst van woorden die een user niet mag gebruiken bij het sturen van zijn todo item.
+
+## Final: Voeg ESLint toe
+- Valideer en fix je code door [ESlint](https://eslint.org/) te installeren (incl. airbnb styles) met: `npm install eslint eslint-config-airbnb-base --save-dev`.
