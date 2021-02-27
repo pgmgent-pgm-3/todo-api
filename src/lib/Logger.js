@@ -11,4 +11,5 @@ export default {
   stressedError: (text) => console.log(chalk.bgRedBright(`error: ${text}`)),
   warning: (text) => console.log(chalk.rgb(255,165,0)(`error: ${text}`)),
   stressedWarning: (text) => console.log(chalk.bgRgb(255,165,0)(`error: ${text}`)),
+  json: (json) => console.log(chalk.grey(JSON.stringify(json, null, 2))),
 }
