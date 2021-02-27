@@ -6,9 +6,10 @@ In deze demo maak je een API waarmee je een todo lijstje kan maken. Je gebruikt 
 
 ## Overzicht
 
-We doorlopen verschillende stappen
+We doorlopen verschillende stappen:
+- [Stap 1: Opzetten van je programmeeromgeving][]
 
-### Stap 1: Opzet van de programmeeromgeving
+## Stap 1: Opzetten van je programmeeromgeving
 
 We doorlopen volgende stappen:
 
