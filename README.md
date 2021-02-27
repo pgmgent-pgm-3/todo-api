@@ -8,6 +8,7 @@ In deze demo maak je een API waarmee je een todo lijstje kan maken. Je gebruikt 
 
 We doorlopen verschillende stappen:
 - [Stap 1: Opzetten van je programmeeromgeving](#stap-1-opzetten-van-je-programmeeromgeving)
+- [Stap 2: TodoFile verder uitwerken](#stap-2-todofile-verder-uitwerken)
 
 ## Stap 1: Opzetten van je programmeeromgeving
 
@@ -31,9 +32,27 @@ We doorlopen volgende stappen:
       - `json()`: zorgt dat een JSON object wordt uitgeschreven in de console als tekst. De tekst zelf staat in een grijze kleur.
 - We starten in deze stap met het opslaan van je `todo.json` bestand in een `data` folder vanaf je root.
   - Maak in je `/src/lib` folder een file `TodoFile.js`. Je maakt hier in een klasse met verschillende functies (zie volgende stappen). Voor nu volstaat:
-    - `save()`: dit is een functie waarmee we een JSON bestand wegschrijven in je `data`folder. Schrijf in je Express applicatie een functie (enkel voor demo) om een lege array weg te schrijven met daarin een object:
+    - `save()`: dit is een functie waarmee we een JSON bestand wegschrijven in je `data`folder. Voor het aanmaken, wijzigen en wegeschrijven van bestanden gebruik je de [File System module van Node.js](https://nodejs.org/api/fs.html).
+- Maak in je Express applicatie een test-functie (bijv. `testToDos`) om een lege array weg te schrijven met daarin een object:
     ```json
     [{
       success: "success!"
     }]
     ```
+
+## Stap 2: TodoFile verder uitwerken
+Werk verder op het `TodoFile.js` die je maakte in stap 1:
+- Schrijf een `get()` functie in TodoFile.js om je array op te halen
+- Installeer [uuid](https://www.npmjs.com/package/uuid)
+- Maak een nieuw todo item en bewaar via een `add(description)` functie. Een todo item heeft een beschrijving en een id:
+   ```json
+    {
+      "id": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6",
+      "description": "Mijn eerste todo item"
+    }
+  ```
+- Gebruik voor het genereren van je id het pakket `uuid` en maak een v4 id.
+- Maak een `update(id, description)` functie aan om een todo te wijzigen. Gebruik de id om je todo op te zoeken in je bestand.
+- Maak een `delete(id)` functie aan om een todo te verwijderen. Gebruik de id om je todo op te ozken in je bestand.
+- Zorg dat je overal error handling toevoegt met je de `Logger` die je maakt in stap 1 zodat je weet waar er zich een probleem voordoet.
+- Test al je functies die je maakte met je test-functie die je maakte in Stap 1.
