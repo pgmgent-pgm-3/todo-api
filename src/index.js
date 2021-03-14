@@ -6,6 +6,7 @@ import Express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import Logger from './lib/Logger.js';
+import authenticate from './actions/auth/index.js';
 import registerTodoEndpoints from './actions/todo/registerTodoEndpoints.js';
 import middleware from './middleware/index.js';
 
@@ -18,10 +19,11 @@ dotenv.config();
 // add json body parser
 app.use(bodyParser.json());
 
-app.use(...middleware);
+// register todo endpoints with middleware
+app.use('/todos', ...middleware, registerTodoEndpoints);
 
-// register the endpoints
-registerTodoEndpoints(app);
+// register auth endpoints
+app.use('/auth', authenticate);
 
 /**
  * Start listening on a port
